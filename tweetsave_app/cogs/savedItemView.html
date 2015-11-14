@@ -55,7 +55,7 @@
             this.user.text(msg.user_name);
             this.handle.text(msg.user_screen_name);
             this.profilePic.attr('src',msg.user_img_url);
-            if (msg.photo!='' ) this.photo.html('<img id="photo" class="" src="'+ msg.photo + '" />');
+            if (msg.photo!='' ) this.photo.html('<img id="photo" class="" style="width:100%" src="'+ msg.photo + '" />');
             else this.photo.html('');
 
         }
