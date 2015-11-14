@@ -3,6 +3,11 @@
 
     <sensor watch="tweet" change="true" run="render" />
 
+    <sensor node="itemView" on="click" run="unsaveTweet" />
+
+    <prop find="saves" />
+    <prop find="saveHash" />
+
 </blueprint>
 
 
@@ -32,6 +37,13 @@
 
         },
 
+        unsaveTweet: function() {
+            var newSaves = this.saves.read();
+            var hash = this.saveHash.read();
+            newSaves.saves.splice(hash[this.item.id],1);
+            this.saves.write(newSaves);
+        },
+
         render: function(msg){
 
             this.item=msg;
@@ -55,7 +67,7 @@
             this.user.text(msg.user_name);
             this.handle.text(msg.user_screen_name);
             this.profilePic.attr('src',msg.user_img_url);
-            if (msg.photo!='' ) this.photo.html('<img id="photo" class="" style="max-width:100%;" src="'+ msg.photo + '" />');
+            if (msg.photo!='' ) this.photo.html('<img id="photo" class="" src="'+ msg.photo + '" />');
             else this.photo.html('');
 
         }
