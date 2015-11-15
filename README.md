@@ -1,2 +1,2 @@
 # TweetSave - A Sample Cognition App
-[Try It !!!](https://landonbar.github.io)
+[Try It !!!](http://landonbar.github.io)
